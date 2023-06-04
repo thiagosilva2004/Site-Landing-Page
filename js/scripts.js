@@ -126,4 +126,48 @@ $(document).ready(function(){
         }
     }
 
+    // scrool para secoes
+    let navBtn = $('.nav-item');
+
+    let bannerSection = $('#mainSlider');
+    let aboutSection = $('#about-area');
+    let servicesSection = $('#services-area');
+    let teamSection = $('#team-area');
+    let portfolioSection = $('#portfolio-area');
+    let contactSection = $('#contact-area');
+
+    let scrollTo = '';
+
+    $(navBtn).click(function() {
+        let btnId = $(this).attr('id');
+
+        switch (btnId) {
+            case 'about-menu':
+                scrollTo = aboutSection;
+                break;
+            case 'services-menu':
+                scrollTo = servicesSection;
+                break;
+            case 'team-menu':
+                scrollTo = teamSection;
+                break;
+            case 'portfolio-menu':
+                scrollTo = portfolioSection;
+                break;
+            case 'contact-menu':
+                scrollTo = contactSection;
+                break;
+            default:
+                scrollTo = bannerSection;
+                break;
+        }
+
+        $([document.documentElement, document.body]).animate({
+            scrollTop: $(scrollTo).offset().top - 70
+        }, 1500);
+
+    });
+
+
+
 });
